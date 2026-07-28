@@ -1,0 +1,421 @@
+/* ================= GLOBAL STYLES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1c1421; /* Background warna gelap sesuai acuan UI */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hide Desktop Layout Elements in Mobile First View */
+.sidebar, 
+.desktop-nav, 
+.hero-banner {
+    display: none;
+}
+
+/* ================= MOBILE STYLES (DEFAULT) ================= */
+
+.mobile-header {
+    padding: 20px 15px;
+    background-color: #1c1421;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-top h2 {
+    color: #00c3ff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header-top span {
+    color: #ff00c8;
+}
+
+.search img,
+.burger img {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* Song Section */
+.song-section {
+    margin: 20px 15px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.section-title span {
+    color: #ff00c8;
+}
+
+.section-title a {
+    color: #00c3ff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Horizontal Scroll List for Mobile */
+.song-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.song-list::-webkit-scrollbar {
+    display: none;
+}
+
+.song-card {
+    flex: 0 0 110px;
+}
+
+.song-card img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.song-card h4 {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-card p {
+    font-size: 10px;
+    color: #a0a0a0;
+}
+
+/* ================= DESKTOP STYLES (RESPONSIVE) ================= */
+
+@media only screen and (min-width: 1024px) {
+
+    /* Hide Mobile Header on Desktop */
+    .mobile-header {
+        display: none;
+    }
+
+    /* Layout Wrapper */
+    .app-container {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        display: block;
+        width: 260px;
+        background: #0d1117;
+        padding: 30px 20px;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        color: #00c3ff;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .menu-title {
+        color: #8a40a7;
+        margin: 25px 0 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .menu-list {
+        list-style: none;
+    }
+
+    .menu-list li {
+        padding: 10px 14px;
+        margin-bottom: 6px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #b3b3b3;
+        transition: all 0.2s ease;
+    }
+
+    .menu-list li:hover,
+    .menu-list li.active {
+        background: #ff00c8;
+        color: #ffffff;
+    }
+
+    /* Main Content Area */
+    .main-content {
+        flex: 1;
+        padding: 30px 40px;
+        background: #231826;
+        overflow-y: auto;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .desktop-nav input {
+        width: 320px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background: #36253b;
+        color: white;
+        font-size: 13px;
+        outline: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        font-size: 14px;
+    }
+
+    .nav-links li {
+        cursor: pointer;
+        color: #d1d1d1;
+    }
+
+    .nav-btn {
+        display: flex;
+        gap: 12px;
+    }
+
+    .login {
+        background: #111;
+        color: white;
+        border: none;
+        padding: 8px 22px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .signup {
+        background: #ff00c8;
+        color: white;
+        border: none;
+        padding: 8px 22px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    /* Hero Banner Wrapper */
+.hero-banner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Card Hero Container */
+.hero-content {
+    flex: 1;
+    background: #3e2a22; /* Warna cokelat sesuai desain */
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Biar gambar melengkung ikutan border-radius banner */
+    min-height: 240px;
+}
+
+/* Sisi Kiri: Teks & Button */
+.hero-text {
+    width: 50%;
+    padding: 30px 0 30px 35px; /* Padding hanya di sisi kiri, atas, bawah */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.hero-text p {
+    color: #c5b5ab;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hero-text p span {
+    color: #ff00c8; /* Highlight pink pada teks */
+}
+
+.hero-btn {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.listen {
+    background: #ff00c8;
+    border: none;
+    color: white;
+    padding: 8px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.follow {
+    background: transparent;
+    border: 1.5px solid #00c3ff;
+    color: #00c3ff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Dots Navigation */
+.hero-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.hero-dots .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #111;
+    border-radius: 50%;
+}
+
+.hero-dots .dot.active {
+    background-color: #ff00c8;
+    width: 14px;
+    border-radius: 10px;
+}
+
+/* Sisi Kanan: Gambar Billie Eilish Full-Height */
+.hero-img-wrapper {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar gambar otomatis nge-fill area kanan tanpa distorsi */
+    object-position: center right;
+}
+
+    /* Adjust Song Section on Desktop */
+    .song-section {
+        margin: 0;
+    }
+
+    .song-list {
+        overflow-x: visible;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+
+    .song-card {
+        flex: unset;
+        width: 100%;
+    }
+
+    .song-card img {
+        width: 100%;
+        height: 150px;
+    }
+
+    .song-card h4 {
+        font-size: 14px;
+    }
+
+    .song-card p {
+        font-size: 12px;
+    }
+}
+
+/* ================= MOBILE STYLES ================= */
+
+/* Secara default (Mobile): Sembunyikan lagu ke-4 dan seterusnya */
+.song-card:nth-child(n+4) {
+    display: none;
+}
+
+.song-card {
+    flex: 0 0 110px;
+}
+
+.song-card img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ================= DESKTOP STYLES ================= */
+
+@media only screen and (min-width: 1024px) {
+
+    /* Di Desktop: Tampilkan KEMBALI semua lagu (termasuk lagu ke-4 dan ke-5) */
+    .song-card:nth-child(n+4) {
+        display: block;
+    }
+
+    .song-list {
+        overflow-x: visible;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Tetap 5 kolom di desktop */
+        gap: 20px;
+    }
+
+    .song-card {
+        flex: unset;
+        width: 100%;
+    }
+
+    .song-card img {
+        width: 100%;
+        height: 150px;
+    }
+}

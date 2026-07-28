@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodies - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= MOBILE HEADER ================= -->
+    <header class="mobile-header">
+        <div class="header-top">
+            <div class="search">
+                <img src="./asset/Search.svg" alt="search">
+            </div>
+            <h2>Home <span>page</span></h2>
+            <div class="burger">
+                <img src="./asset/burger.svg" alt="burger">
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN WRAPPER ================= -->
+    <div class="app-container">
+
+        <!-- Sidebar (Desktop Only) -->
+        <aside class="sidebar">
+            <h1 class="logo">Melodies</h1>
+
+            <p class="menu-title">Menu</p>
+
+            <ul class="menu-list">
+                <li class="active">🏠 Home</li>
+                <li>◎ Discover</li>
+                <li>◎ Albums</li>
+                <li>◎ Artists</li>
+            </ul>
+
+            <p class="menu-title">Library</p>
+
+            <ul class="menu-list">
+                <li>🕘 Recently Added</li>
+                <li>◎ Most Played</li>
+            </ul>
+
+            <p class="menu-title">Playlist & favorite</p>
+
+            <ul class="menu-list">
+                <li>♡ Favorites</li>
+                <li>≡ Your Playlist</li>
+                <li>➕ Add Playlist</li>
+            </ul>
+
+            <p class="menu-title">General</p>
+
+            <ul class="menu-list">
+                <li>⚙ Setting</li>
+                <li>↪ Logout</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Desktop Navbar -->
+            <nav class="desktop-nav">
+                <input type="text" placeholder="Search For Musics, Artists, Albums...">
+
+                <ul class="nav-links">
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Premium</li>
+                </ul>
+
+                <div class="nav-btn">
+                    <button class="login">Login</button>
+                    <button class="signup">Sign Up</button>
+                </div>
+            </nav>
+
+            <!-- Hero Banner (Desktop Only) -->
+            <section class="hero-banner">
+    <button class="arrow prev">&#10094;</button>
+
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Billie eilish</h1>
+            <p>
+                You can have easy access to every song of Billie Eilish by clicking on the 
+                <span>Listen now</span> button. You can also <span>follow</span> her too for supporting her and keeping it up with what she does.
+            </p>
+            <div class="hero-btn">
+                <button class="listen">Listen Now</button>
+                <button class="follow">Follow</button>
+            </div>
+            <!-- Indicator Dots -->
+            <div class="hero-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="hero-img-wrapper">
+            <img src="./asset/Backgorund.png" alt="Billie Eilish" class="hero-img">
+        </div>
+    </div>
+
+    <button class="arrow next">&#10095;</button>
+</section>
+
+            <!-- Weekly Top Songs (Mobile & Desktop) -->
+            <section class="song-section" id="weekly-song">
+                <div class="section-title">
+                    <h2>Weekly Top <span>Songs</span></h2>
+                    <a href="#">View All ></a>
+                </div>
+
+                <div class="song-list">
+                    <div class="song-card">
+                        <img src="./asset/Whatever it takes.png" alt="Whatever It Takes">
+                        <h4>Whatever It Takes</h4>
+                        <p>Imagine Dragons</p>
+                    </div>
+
+                    <div class="song-card">
+                        <img src="./asset/SkyFall.png" alt="Skyfall">
+                        <h4>Skyfall</h4>
+                        <p>Adele</p>
+                    </div>
+
+                    <div class="song-card">
+                        <img src="./asset/Superman.png" alt="Superman">
+                        <h4>Superman</h4>
+                        <p>Eminem</p>
+                    </div>
+
+                    <div class="song-card">
+                        <img src="./asset/Softcore.png" alt="Softcore">
+                        <h4>Softcore</h4>
+                        <p>The Neighbourhood</p>
+                    </div>
+
+                    <div class="song-card">
+                        <img src="./asset/The lonliest.png" alt="The Loneliest">
+                        <h4>The Loneliest</h4>
+                        <p>Måneskin</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
