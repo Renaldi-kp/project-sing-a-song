@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #1c1421; /* Background warna gelap sesuai acuan UI */
+    background: #1c1421;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
 }
@@ -14,8 +14,9 @@ body {
 /* Hide Desktop Layout Elements in Mobile First View */
 .sidebar, 
 .desktop-nav, 
-.hero-banner {
-    display: none;
+.hero-banner,
+.arrow {
+    display: none !important;
 }
 
 /* ================= MOBILE STYLES (DEFAULT) ================= */
@@ -48,7 +49,7 @@ body {
     cursor: pointer;
 }
 
-/* Song Section */
+/* Song Section Mobile */
 .song-section {
     margin: 20px 15px;
 }
@@ -75,7 +76,6 @@ body {
     font-size: 12px;
 }
 
-/* Horizontal Scroll List for Mobile */
 .song-list {
     display: flex;
     gap: 12px;
@@ -90,6 +90,11 @@ body {
 
 .song-card {
     flex: 0 0 110px;
+}
+
+/* Batasi Mobile Cuma 3 Lagu */
+.song-card:nth-child(n+4) {
+    display: none !important;
 }
 
 .song-card img {
@@ -113,28 +118,32 @@ body {
     color: #a0a0a0;
 }
 
+
 /* ================= DESKTOP STYLES (RESPONSIVE) ================= */
 
 @media only screen and (min-width: 1024px) {
 
-    /* Hide Mobile Header on Desktop */
+    /* 1. Sembunyikan Mobile Header */
     .mobile-header {
-        display: none;
+        display: none !important;
     }
 
-    /* Layout Wrapper */
+    /* 2. Layout Wrapper Utama (Bikin Sidebar & Main Content Berjejer Sampingan) */
     .app-container {
-        display: flex;
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
         min-height: 100vh;
     }
 
-    /* Sidebar */
+    /* 3. Sidebar (Menu Kiri) */
     .sidebar {
-        display: block;
-        width: 260px;
+        display: block !important;
+        width: 260px !important;
+        min-width: 260px !important;
         background: #0d1117;
         padding: 30px 20px;
-        flex-shrink: 0;
+        flex-shrink: 0 !important; /* Mencegah sidebar tergepengkan */
     }
 
     .logo {
@@ -172,17 +181,18 @@ body {
         color: #ffffff;
     }
 
-    /* Main Content Area */
+    /* 4. Area Konten Utama (Sisi Kanan Sidebar) */
     .main-content {
-        flex: 1;
+        flex: 1 !important;
+        width: calc(100% - 260px) !important;
         padding: 30px 40px;
         background: #231826;
         overflow-y: auto;
     }
 
-    /* Desktop Navigation */
+    /* 5. Desktop Navigation */
     .desktop-nav {
-        display: flex;
+        display: flex !important;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
@@ -217,8 +227,8 @@ body {
     }
 
     .login {
-        background: #111;
-        color: white;
+        background: black;
+        color: pink;
         border: none;
         padding: 8px 22px;
         border-radius: 20px;
@@ -234,188 +244,153 @@ body {
         cursor: pointer;
     }
 
-    /* Hero Banner Wrapper */
-.hero-banner {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-}
+    /* 6. Hero Banner Wrapper Desktop */
+    .hero-banner {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 40px;
+        width: 100%;
+    }
 
-/* Card Hero Container */
-.hero-content {
-    flex: 1;
-    background: #3e2a22; /* Warna cokelat sesuai desain */
-    border-radius: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden; /* Biar gambar melengkung ikutan border-radius banner */
-    min-height: 240px;
-}
+    .arrow {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #18101a;
+        color: #ff00c8;
+        font-size: 16px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.2s ease;
+    }
 
-/* Sisi Kiri: Teks & Button */
-.hero-text {
-    width: 50%;
-    padding: 30px 0 30px 35px; /* Padding hanya di sisi kiri, atas, bawah */
-    z-index: 2;
-}
+    .arrow:hover {
+        background: #2a1a2e;
+    }
 
-.hero-text h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #ffffff;
-}
+    .hero-content {
+        flex: 1;
+        background: linear-gradient(90deg, rgba(30, 18, 24, 0.85) 30%, rgba(30, 18, 24, 0.2) 70%), 
+                    url('./asset/Backgorund.png');
+        background-size: cover;
+        background-position: center right;
+        background-repeat: no-repeat;
+        border-radius: 16px;
+        padding: 35px 40px;
+        min-height: 240px;
+        display: flex;
+        align-items: center;
+    }
 
-.hero-text p {
-    color: #c5b5ab;
-    font-size: 11px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
+    .hero-text {
+        max-width: 55%;
+    }
 
-.hero-text p span {
-    color: #ff00c8; /* Highlight pink pada teks */
-}
+    .hero-text h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #ffffff;
+    }
 
-.hero-btn {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-}
+    .hero-text p {
+        color: #d5c8cf;
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
 
-.listen {
-    background: #ff00c8;
-    border: none;
-    color: white;
-    padding: 8px 22px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 600;
-}
+    .hero-text p span {
+        color: #ff00c8;
+    }
 
-.follow {
-    background: transparent;
-    border: 1.5px solid #00c3ff;
-    color: #00c3ff;
-    padding: 8px 22px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 600;
-}
+    .hero-btn {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
 
-/* Dots Navigation */
-.hero-dots {
-    display: flex;
-    gap: 6px;
-}
+    .listen {
+        background:transparent;
+        border: 1.5px solid #ff00c8;
+        color: #ff00c8;
+        padding: 10px 24px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+    }
 
-.hero-dots .dot {
-    width: 6px;
-    height: 6px;
-    background-color: #111;
-    border-radius: 50%;
-}
+    .follow {
+        background: transparent;
+        border: 1.5px solid #00c3ff;
+        color: #00c3ff;
+        padding: 10px 24px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+    }
 
-.hero-dots .dot.active {
-    background-color: #ff00c8;
-    width: 14px;
-    border-radius: 10px;
-}
+    .hero-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
 
-/* Sisi Kanan: Gambar Billie Eilish Full-Height */
-.hero-img-wrapper {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
+    .hero-dots .dot {
+        width: 6px;
+        height: 6px;
+        background-color: #000000;
+        border-radius: 50%;
+    }
 
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Biar gambar otomatis nge-fill area kanan tanpa distorsi */
-    object-position: center right;
-}
+    .hero-dots .dot.active {
+        background-color: #ff00c8;
+        width: 16px;
+        border-radius: 10px;
+    }
 
-    /* Adjust Song Section on Desktop */
+    /* 7. Weekly Top Songs Desktop */
     .song-section {
-        margin: 0;
+        margin: 30px 0 0 0;
+        display: block !important;
     }
 
     .song-list {
-        overflow-x: visible;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 20px !important;
+        overflow-x: visible !important;
     }
 
-    .song-card {
-        flex: unset;
-        width: 100%;
+    .song-card,
+    .song-card:nth-child(n+4) {
+        display: block !important;
+        flex: unset !important;
+        width: 100% !important;
     }
 
     .song-card img {
         width: 100%;
         height: 150px;
+        object-fit: cover;
+        border-radius: 12px;
     }
 
     .song-card h4 {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .song-card p {
-        font-size: 12px;
-    }
-}
-
-/* ================= MOBILE STYLES ================= */
-
-/* Secara default (Mobile): Sembunyikan lagu ke-4 dan seterusnya */
-.song-card:nth-child(n+4) {
-    display: none;
-}
-
-.song-card {
-    flex: 0 0 110px;
-}
-
-.song-card img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-/* ================= DESKTOP STYLES ================= */
-
-@media only screen and (min-width: 1024px) {
-
-    /* Di Desktop: Tampilkan KEMBALI semua lagu (termasuk lagu ke-4 dan ke-5) */
-    .song-card:nth-child(n+4) {
-        display: block;
-    }
-
-    .song-list {
-        overflow-x: visible;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* Tetap 5 kolom di desktop */
-        gap: 20px;
-    }
-
-    .song-card {
-        flex: unset;
-        width: 100%;
-    }
-
-    .song-card img {
-        width: 100%;
-        height: 150px;
+        font-size: 11px;
     }
 }
